@@ -111,3 +111,35 @@ document.addEventListener("click", (e) => {
     document.body.style.overflow = "";
   }
 });
+
+function handleSubscribe(event) {
+  event.preventDefault();
+  const email = event.target.querySelector(".email-input").value;
+  alert("Thank you for subscribing with: " + email);
+  event.target.reset();
+}
+
+function scrollEvents(direction) {
+  const grid = document.getElementById("eventsGrid");
+  const scrollAmount = 320;
+  if (direction === "left") {
+    grid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  } else {
+    grid.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+}
+
+function toggleFaq(element) {
+  const faqItem = element.parentElement;
+  const wasActive = faqItem.classList.contains("active");
+
+  // Close all FAQ items
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    item.classList.remove("active");
+  });
+
+  // Open clicked item if it wasn't active
+  if (!wasActive) {
+    faqItem.classList.add("active");
+  }
+}

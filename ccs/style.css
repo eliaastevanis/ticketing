@@ -370,19 +370,19 @@ nav a:active {
   line-height: 1.6;
 }
 
-/* Upcoming Concerts */
-.upcoming-section {
+/* Running Out & Upcoming Concerts */
+.duo-section {
   padding: 60px 50px;
-  background: #f5f8fb;
+  background: #ffffff;
   text-align: center;
 }
 
-.upcoming-section h2 {
+.duo-section h2 {
   font-size: 32px;
   margin-bottom: 10px;
 }
 
-.upcoming-section > p {
+.duo-section > p {
   color: #666;
   margin-bottom: 30px;
 }
@@ -398,16 +398,7 @@ nav a:active {
 }
 
 .concert-slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.concert-slider::-webkit-scrollbar-thumb {
-  background: #4a90e2;
-  border-radius: 10px;
-}
-
-.concert-slider::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .concert-card {
@@ -454,7 +445,7 @@ nav a:active {
 /* Steps Section */
 .steps-section {
   padding: 60px 50px;
-  background: white;
+  background: #f5f8fb;
 }
 
 .steps-container {
@@ -749,12 +740,12 @@ nav a:active {
     gap: 25px;
   }
 
-  /* Upcoming Section */
-  .upcoming-section {
+  /* Running Out & Upcoming Section */
+  .duo-section {
     padding: 40px 20px;
   }
 
-  .upcoming-section h2 {
+  .duo-section h2 {
     font-size: 26px;
   }
 
@@ -804,6 +795,207 @@ nav a:active {
   .step-circle p {
     font-size: 13px;
   }
+}
+
+/* Combined Section - Newsletter + Events */
+.combined-section {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  padding: 40px 20px;
+  background: white;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background: #f8f9fa;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.newsletter h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+}
+
+.newsletter p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-input {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.subscribe-btn {
+  background: #4c4cff;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.subscribe-btn:hover {
+  background: #3a3ad4;
+}
+
+/* Events Section */
+.events {
+  min-height: 400px;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.events-grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
+
+.events-grid::-webkit-scrollbar {
+  display: none;
+}
+
+/*
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+} */
+
+.event-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 16px;
+}
+
+.event-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.event-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.event-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.author-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.author-info {
+  font-size: 12px;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.author-date {
+  color: #999;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.arrow-btn {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-size: 16px;
+}
+
+.arrow-btn:hover {
+  background: #f0f0f0;
+  border-color: #4c4cff;
+  color: #4c4cff;
+}
+
+.all-news-link {
+  color: #4c4cff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.all-news-link:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 576px) {

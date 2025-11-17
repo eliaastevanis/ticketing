@@ -112,6 +112,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
+// Subscribe Form Handler
 function handleSubscribe(event) {
   event.preventDefault();
   const email = event.target.querySelector(".email-input").value;
@@ -119,27 +120,104 @@ function handleSubscribe(event) {
   event.target.reset();
 }
 
-function scrollEvents(direction) {
-  const grid = document.getElementById("eventsGrid");
-  const scrollAmount = 320;
-  if (direction === "left") {
-    grid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
-  } else {
-    grid.scrollBy({ left: scrollAmount, behavior: "smooth" });
+// Events Pagination System with Responsive Support
+var slideIndex = 1;
+
+function getCardsPerPage() {
+  var width = window.innerWidth;
+
+  // Mobile: 1 card per page
+  if (width <= 768) {
+    return 1;
+  }
+  // Tablet: 2 cards per page
+  else if (width <= 992) {
+    return 2;
+  }
+  // Desktop: 3 cards per page
+  else {
+    return 3;
   }
 }
 
-function toggleFaq(element) {
-  const faqItem = element.parentElement;
-  const wasActive = faqItem.classList.contains("active");
+function plusDivs(n) {
+  showDivs((slideIndex += n));
+}
 
-  // Close all FAQ items
-  document.querySelectorAll(".faq-item").forEach((item) => {
-    item.classList.remove("active");
-  });
+function showDivs(n) {
+  var i;
+  var x = document.querySelectorAll(".event-card");
 
-  // Open clicked item if it wasn't active
-  if (!wasActive) {
-    faqItem.classList.add("active");
+  if (x.length === 0) return;
+
+  // Get cards per page based on screen size
+  var cardsPerPage = getCardsPerPage();
+  var totalPages = Math.ceil(x.length / cardsPerPage);
+
+  // Loop back to first page
+  if (n > totalPages) {
+    slideIndex = 1;
+  }
+  // Loop back to last page
+  if (n < 1) {
+    slideIndex = totalPages;
+  }
+
+  // Hide all cards first
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+
+  // Show cards for current page
+  var startIndex = (slideIndex - 1) * cardsPerPage;
+  var endIndex = startIndex + cardsPerPage;
+
+  for (i = startIndex; i < endIndex && i < x.length; i++) {
+    x[i].style.display = "flex";
+  }
+
+  // Update button states
+  updateArrowButtons(slideIndex, totalPages);
+}
+
+function updateArrowButtons(currentPage, totalPages) {
+  var leftBtn = document.querySelector(".events-header .arrow-btn:first-child");
+  var rightBtn = document.querySelector(".events-header .arrow-btn:last-child");
+
+  if (leftBtn && rightBtn) {
+    // Disable left arrow on first page
+    if (currentPage === 1) {
+      leftBtn.style.opacity = "0.5";
+      leftBtn.style.cursor = "not-allowed";
+    } else {
+      leftBtn.style.opacity = "1";
+      leftBtn.style.cursor = "pointer";
+    }
+
+    // Disable right arrow on last page
+    if (currentPage === totalPages) {
+      rightBtn.style.opacity = "0.5";
+      rightBtn.style.cursor = "not-allowed";
+    } else {
+      rightBtn.style.opacity = "1";
+      rightBtn.style.cursor = "pointer";
+    }
   }
 }
+
+// Handle window resize
+var resizeTimer;
+window.addEventListener("resize", function () {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(function () {
+    // Reset to first page on resize
+    slideIndex = 1;
+    showDivs(slideIndex);
+  }, 250);
+});
+
+// Initialize on page load
+document.addEventListener("DOMContentLoaded", function () {
+  // Show cards based on screen size
+  showDivs(1);
+});

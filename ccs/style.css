@@ -524,8 +524,301 @@ nav a:active {
   line-height: 1.4;
 }
 
-/* Responsive */
+/* Combined Section - Newsletter + Events */
+.combined-section {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 30px;
+  padding: 60px 50px;
+  background: #f8f9fa;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.newsletter h2 {
+  font-size: 24px;
+  margin-bottom: 12px;
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.newsletter p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.email-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.email-input {
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+  transition: border-color 0.3s;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #4c4cff;
+}
+
+.subscribe-btn {
+  background: #4c4cff;
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+  font-family: "Poppins", sans-serif;
+}
+
+.subscribe-btn:hover {
+  background: #3a3ad4;
+}
+
+/* Events Section */
+.events {
+  min-height: 400px;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+}
+
+.event-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Hide cards beyond the first 3 by default */
+.event-card:nth-child(n + 4) {
+  display: none;
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.event-description {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.event-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.author-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex-shrink: 0;
+}
+
+.author-info {
+  font-size: 12px;
+}
+
+.author-name {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.author-date {
+  color: #999;
+}
+
+.nav-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.arrow-btn {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  font-size: 18px;
+}
+
+.arrow-btn .arrow-icon {
+  font-size: 16px;
+  color: #666;
+}
+
+.arrow-btn:hover {
+  background: #f5f5f5;
+  border-color: #4c4cff;
+}
+
+.arrow-btn:hover .arrow-icon {
+  color: #4c4cff;
+}
+
+.all-news-link {
+  color: #4c4cff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.3s;
+}
+
+.all-news-link:hover {
+  gap: 8px;
+}
+
+/* ============================================
+   RESPONSIVE MEDIA QUERIES - COMPLETE FIX
+   ============================================ */
+
+/* Large Desktop - 1400px */
+@media (max-width: 1400px) {
+  header {
+    max-width: 100%;
+  }
+
+  .artists-grid,
+  .concert-slider,
+  .events-grid,
+  .combined-section {
+    max-width: 100%;
+  }
+}
+
+/* Desktop - 1200px */
 @media (max-width: 1200px) {
+  /* Header & Navbar */
+  .navbar {
+    gap: 40px;
+    padding: 25px 25px;
+    margin-bottom: 50px;
+  }
+
+  .logo {
+    font-size: 1.75rem;
+  }
+
+  nav {
+    gap: 40px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .login-btn {
+    padding: 7px 18px;
+    font-size: 14px;
+  }
+
+  /* Cari Section */
+  .cari {
+    padding: 50px 40px 35px;
+  }
+
+  .judul h1 {
+    font-size: 38px;
+  }
+
+  .judul p {
+    font-size: 17px;
+  }
+
+  .search-container {
+    margin: 45px 0 55px 0;
+  }
+
+  /* Artists Section */
+  .artists-section {
+    padding: 0 40px;
+    margin-top: -45px;
+    margin-bottom: -45px;
+  }
+
+  .artists-grid {
+    gap: 12px;
+  }
+
   .artist-image {
     height: 130px;
   }
@@ -546,12 +839,95 @@ nav a:active {
     font-size: 11px;
     padding: 7px 10px;
   }
+
+  /* Benefits Section */
+  .benefits-section {
+    padding: 90px 40px 55px;
+  }
+
+  .benefits-section h2 {
+    font-size: 30px;
+  }
+
+  .benefits-grid {
+    gap: 25px;
+  }
+
+  /* Duo Section */
+  .duo-section {
+    padding: 55px 40px;
+  }
+
+  .duo-section h2 {
+    font-size: 30px;
+  }
+
+  .concert-card {
+    min-width: 240px;
+  }
+
+  .concert-image {
+    height: 280px;
+  }
+
+  /* Steps Section */
+  .steps-section {
+    padding: 55px 40px;
+  }
+
+  .steps-container {
+    gap: 35px;
+  }
+
+  .steps-content h2 {
+    font-size: 30px;
+  }
+
+  .step-circle {
+    width: 170px;
+    height: 170px;
+  }
+
+  /* Combined Section - Events */
+  .combined-section {
+    grid-template-columns: 300px 1fr;
+    gap: 25px;
+    padding: 55px 40px;
+  }
+
+  .newsletter {
+    padding: 35px 25px;
+  }
+
+  .newsletter h2 {
+    font-size: 22px;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .event-image {
+    height: 180px;
+  }
+
+  .event-title {
+    font-size: 16px;
+  }
+
+  .event-content {
+    padding: 18px;
+  }
 }
 
+/* Tablet Landscape - 992px */
 @media (max-width: 992px) {
+  /* Navbar */
   .navbar {
     gap: 30px;
     padding: 20px;
+    margin-bottom: 45px;
   }
 
   .logo {
@@ -562,7 +938,30 @@ nav a:active {
     gap: 30px;
   }
 
+  nav a {
+    font-size: 14px;
+  }
+
+  /* Cari Section */
+  .cari {
+    padding: 45px 30px 30px;
+  }
+
+  .judul h1 {
+    font-size: 34px;
+  }
+
+  .judul p {
+    font-size: 16px;
+  }
+
+  .search-container {
+    margin: 40px 0 50px 0;
+  }
+
+  /* Artists Section */
   .artists-section {
+    padding: 0 30px;
     margin-top: -40px;
     margin-bottom: -40px;
   }
@@ -583,8 +982,44 @@ nav a:active {
     font-size: 11px;
   }
 
+  /* Benefits Section */
   .benefits-section {
-    padding: 80px 50px 60px;
+    padding: 80px 30px 50px;
+  }
+
+  .benefits-section h2 {
+    font-size: 28px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  /* Duo Section */
+  .duo-section {
+    padding: 50px 30px;
+  }
+
+  .duo-section h2 {
+    font-size: 28px;
+  }
+
+  .concert-card {
+    min-width: 230px;
+  }
+
+  /* Steps Section */
+  .steps-section {
+    padding: 50px 30px;
+  }
+
+  .steps-container {
+    gap: 30px;
+  }
+
+  .steps-content h2 {
+    font-size: 28px;
   }
 
   .steps-visual {
@@ -595,8 +1030,34 @@ nav a:active {
     width: 160px;
     height: 160px;
   }
+
+  /* Combined Section - Events */
+  .combined-section {
+    grid-template-columns: 1fr;
+    padding: 50px 30px;
+  }
+
+  .newsletter {
+    position: static;
+    margin-bottom: 30px;
+    max-width: 100%;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .event-card:nth-child(n + 4) {
+    display: none;
+  }
+
+  .event-card:nth-child(3) {
+    display: none;
+  }
 }
 
+/* Tablet Portrait - 768px */
 @media (max-width: 768px) {
   /* Navbar - Hamburger muncul */
   .navbar {
@@ -757,6 +1218,10 @@ nav a:active {
     min-width: 220px;
   }
 
+  .concert-image {
+    height: 280px;
+  }
+
   /* Steps Section */
   .steps-section {
     padding: 40px 20px;
@@ -795,211 +1260,109 @@ nav a:active {
   .step-circle p {
     font-size: 13px;
   }
+
+  /* Combined Section - Events */
+  .combined-section {
+    padding: 40px 20px;
+  }
+
+  .newsletter {
+    padding: 30px 20px;
+  }
+
+  .newsletter h2 {
+    font-size: 22px;
+  }
+
+  .newsletter p {
+    font-size: 13px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .event-card:nth-child(n + 4) {
+    display: none;
+  }
+
+  .event-card:nth-child(2),
+  .event-card:nth-child(3) {
+    display: none;
+  }
+
+  .event-image {
+    height: 200px;
+  }
+
+  .event-title {
+    font-size: 17px;
+  }
+
+  .event-content {
+    padding: 18px;
+  }
+
+  .events-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .nav-arrows {
+    justify-content: center;
+  }
+
+  .all-news-link {
+    justify-content: center;
+  }
 }
 
-/* Combined Section - Newsletter + Events */
-.combined-section {
-  display: grid;
-  grid-template-columns: 350px 1fr;
-  gap: 30px;
-  padding: 40px 20px;
-  background: white;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-/* Newsletter Section */
-.newsletter {
-  background: #f8f9fa;
-  padding: 30px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: fit-content;
-  position: sticky;
-  top: 100px;
-}
-
-.newsletter h2 {
-  font-size: 22px;
-  margin-bottom: 12px;
-  color: #1a1a1a;
-}
-
-.newsletter p {
-  color: #666;
-  font-size: 14px;
-  margin-bottom: 24px;
-  line-height: 1.5;
-}
-
-.email-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.email-input {
-  padding: 14px 16px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 14px;
-}
-
-.subscribe-btn {
-  background: #4c4cff;
-  color: white;
-  border: none;
-  padding: 14px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background 0.3s;
-}
-
-.subscribe-btn:hover {
-  background: #3a3ad4;
-}
-
-/* Events Section */
-.events {
-  min-height: 400px;
-}
-
-.events-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-
-.events-grid {
-  display: flex;
-  gap: 20px;
-  overflow-x: auto;
-  padding: 20px 0;
-  max-width: 1400px;
-  margin: 0 auto;
-  scroll-behavior: smooth;
-}
-
-.events-grid::-webkit-scrollbar {
-  display: none;
-}
-
-/*
-.events-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-} */
-
-.event-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.event-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.event-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.event-content {
-  padding: 16px;
-}
-
-.event-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #1a1a1a;
-}
-
-.event-description {
-  font-size: 13px;
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.event-author {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.author-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.author-info {
-  font-size: 12px;
-}
-
-.author-name {
-  font-weight: 600;
-  color: #1a1a1a;
-}
-
-.author-date {
-  color: #999;
-}
-
-.nav-arrows {
-  display: flex;
-  gap: 8px;
-}
-
-.arrow-btn {
-  width: 36px;
-  height: 36px;
-  border: 1px solid #ddd;
-  border-radius: 50%;
-  background: white;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-  font-size: 16px;
-}
-
-.arrow-btn:hover {
-  background: #f0f0f0;
-  border-color: #4c4cff;
-  color: #4c4cff;
-}
-
-.all-news-link {
-  color: #4c4cff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.all-news-link:hover {
-  text-decoration: underline;
-}
-
+/* Mobile Large - 576px */
 @media (max-width: 576px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 15px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .login-btn {
+    font-size: 13px;
+    padding: 7px 14px;
+  }
+
+  /* Cari Section */
+  .cari {
+    padding: 35px 15px 25px;
+  }
+
+  .judul h1 {
+    font-size: 24px;
+  }
+
+  .judul p {
+    font-size: 14px;
+  }
+
+  .search-container {
+    margin: 25px 0 35px 0;
+  }
+
+  .search-box {
+    padding: 12px 16px;
+  }
+
+  .search-btn {
+    padding: 12px 18px;
+  }
+
+  /* Artists Section */
   .artists-section {
+    padding: 0 15px;
     margin-top: -25px;
     margin-bottom: -25px;
   }
@@ -1031,14 +1394,168 @@ nav a:active {
     font-size: 9px;
   }
 
+  /* Benefits Section */
   .benefits-section {
-    padding: 60px 20px 40px;
+    padding: 60px 15px 35px;
+  }
+
+  .benefits-section h2 {
+    font-size: 24px;
+  }
+
+  .benefits-section > p {
+    font-size: 13px;
+  }
+
+  .benefit-icon {
+    font-size: 50px;
+  }
+
+  .benefit-card h3 {
+    font-size: 18px;
+  }
+
+  .benefit-card p {
+    font-size: 13px;
+  }
+
+  /* Duo Section */
+  .duo-section {
+    padding: 35px 15px;
+  }
+
+  .duo-section h2 {
+    font-size: 24px;
+  }
+
+  .duo-section > p {
+    font-size: 13px;
+  }
+
+  .concert-card {
+    min-width: 200px;
+  }
+
+  .concert-image {
+    height: 250px;
+  }
+
+  .concert-name {
+    font-size: 16px;
+  }
+
+  .concert-details {
+    font-size: 13px;
+  }
+
+  .concert-price {
+    font-size: 14px;
+  }
+
+  /* Steps Section */
+  .steps-section {
+    padding: 35px 15px;
+  }
+
+  .steps-content h2 {
+    font-size: 24px;
+  }
+
+  .steps-content p {
+    font-size: 13px;
+  }
+
+  .buy-ticket-btn {
+    padding: 11px 26px;
+    font-size: 15px;
+  }
+
+  .step-circle {
+    max-width: 220px;
+    padding: 20px 12px;
+  }
+
+  .step-icon {
+    font-size: 45px;
+  }
+
+  .step-circle h3 {
+    font-size: 15px;
+  }
+
+  .step-circle p {
+    font-size: 12px;
+  }
+
+  /* Combined Section - Events */
+  .combined-section {
+    padding: 30px 15px;
+  }
+
+  .newsletter {
+    padding: 25px 20px;
+  }
+
+  .newsletter h2 {
+    font-size: 20px;
+  }
+
+  .newsletter p {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .email-input,
+  .subscribe-btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .event-image {
+    height: 180px;
+  }
+
+  .event-title {
+    font-size: 16px;
+  }
+
+  .event-description {
+    font-size: 12px;
+  }
+
+  .event-content {
+    padding: 16px;
+  }
+
+  .author-avatar {
+    width: 35px;
+    height: 35px;
+  }
+
+  .author-name,
+  .author-date {
+    font-size: 11px;
+  }
+
+  .arrow-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .arrow-btn .arrow-icon {
+    font-size: 14px;
+  }
+
+  .all-news-link {
+    font-size: 13px;
   }
 }
 
+/* Mobile Medium - 480px */
 @media (max-width: 480px) {
+  /* Navbar */
   .navbar {
-    padding: 15px 15px;
+    padding: 12px 12px;
   }
 
   .hamburger {
@@ -1062,14 +1579,38 @@ nav a:active {
     width: 85%;
   }
 
+  /* Cari Section */
+  .cari {
+    padding: 30px 12px 20px;
+  }
+
   .judul h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .judul p {
+    font-size: 13px;
+  }
+
+  .search-container {
+    margin: 20px 0 30px 0;
+    gap: 12px;
+  }
+
+  .search-box {
+    padding: 11px 14px;
+  }
+
+  .search-box input {
+    font-size: 13px;
+  }
+
+  .search-btn {
+    padding: 11px 16px;
     font-size: 14px;
   }
 
+  /* Artists Section */
   .artists-section {
     padding: 0 10px;
     margin-top: -20px;
@@ -1103,25 +1644,243 @@ nav a:active {
     font-size: 8px;
   }
 
+  /* Benefits Section */
   .benefits-section {
-    padding: 50px 20px 40px;
+    padding: 50px 12px 30px;
   }
 
-  .benefits-section h2,
-  .upcoming-section h2,
+  .benefits-section h2 {
+    font-size: 22px;
+  }
+
+  .benefits-section > p {
+    font-size: 12px;
+  }
+
+  .benefit-icon {
+    font-size: 45px;
+    margin-bottom: 12px;
+  }
+
+  .benefit-card {
+    padding: 15px;
+  }
+
+  .benefit-card h3 {
+    font-size: 17px;
+  }
+
+  .benefit-card p {
+    font-size: 12px;
+  }
+
+  /* Duo Section */
+  .duo-section {
+    padding: 30px 12px;
+  }
+
+  .duo-section h2 {
+    font-size: 22px;
+  }
+
+  .duo-section > p {
+    font-size: 12px;
+  }
+
+  .concert-card {
+    min-width: 180px;
+  }
+
+  .concert-image {
+    height: 220px;
+  }
+
+  .concert-info {
+    padding: 12px;
+  }
+
+  .concert-name {
+    font-size: 15px;
+  }
+
+  .concert-details {
+    font-size: 12px;
+  }
+
+  .concert-price {
+    font-size: 13px;
+  }
+
+  .book-btn {
+    padding: 7px 10px;
+    font-size: 11px;
+  }
+
+  /* Steps Section */
+  .steps-section {
+    padding: 30px 12px;
+  }
+
   .steps-content h2 {
     font-size: 22px;
   }
 
-  .concert-card {
-    min-width: 200px;
+  .steps-content p {
+    font-size: 12px;
+    margin-bottom: 25px;
   }
 
-  .concert-image {
-    height: 250px;
+  .buy-ticket-btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .step-circle {
+    max-width: 200px;
+    padding: 18px 10px;
+  }
+
+  .step-icon {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .step-circle h3 {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .step-circle p {
+    font-size: 10px;
+  }
+
+  /* Combined Section - Events */
+  .combined-section {
+    padding: 25px 12px;
+  }
+
+  .newsletter {
+    padding: 20px 15px;
+  }
+
+  .newsletter h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .newsletter p {
+    font-size: 11px;
+    margin-bottom: 18px;
+  }
+
+  .email-form {
+    gap: 10px;
+  }
+
+  .email-input,
+  .subscribe-btn {
+    padding: 11px 14px;
+    font-size: 12px;
+  }
+
+  .event-image {
+    height: 160px;
+  }
+
+  .event-title {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .event-description {
+    font-size: 11px;
+    margin-bottom: 12px;
+  }
+
+  .event-content {
+    padding: 14px;
+  }
+
+  .event-author {
+    gap: 10px;
+  }
+
+  .author-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .author-name {
+    font-size: 10px;
+  }
+
+  .author-date {
+    font-size: 10px;
+  }
+
+  .events-header {
+    margin-top: 20px;
+    padding-top: 18px;
+    gap: 12px;
+  }
+
+  .arrow-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .arrow-btn .arrow-icon {
+    font-size: 13px;
+  }
+
+  .all-news-link {
+    font-size: 12px;
   }
 }
 
+/* Mobile Small - 360px */
+@media (max-width: 360px) {
+  .logo {
+    font-size: 1rem;
+  }
+
+  .login-btn {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+
+  .judul h1 {
+    font-size: 20px;
+  }
+
+  .artists-grid {
+    gap: 5px;
+  }
+
+  .artist-image {
+    height: 60px;
+  }
+
+  .benefits-section h2,
+  .duo-section h2,
+  .steps-content h2 {
+    font-size: 20px;
+  }
+
+  .concert-card {
+    min-width: 160px;
+  }
+
+  .newsletter h2 {
+    font-size: 16px;
+  }
+
+  .event-image {
+    height: 140px;
+  }
+}
+
+/* Keyframe Animation */
 @keyframes slideInLeft {
   to {
     opacity: 1;

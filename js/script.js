@@ -112,7 +112,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Subscribe Form Handler
+// Proses form subscribe
 function handleSubscribe(event) {
   event.preventDefault();
   const email = event.target.querySelector(".email-input").value;
@@ -120,7 +120,7 @@ function handleSubscribe(event) {
   event.target.reset();
 }
 
-// Events Pagination System with Responsive Support
+// Responsive Events
 var slideIndex = 1;
 
 function getCardsPerPage() {
@@ -150,25 +150,25 @@ function showDivs(n) {
 
   if (x.length === 0) return;
 
-  // Get cards per page based on screen size
+  // Cards per page berdasarkan ukuran screen
   var cardsPerPage = getCardsPerPage();
   var totalPages = Math.ceil(x.length / cardsPerPage);
 
-  // Loop back to first page
+  // Looping ke halaman pertama
   if (n > totalPages) {
     slideIndex = 1;
   }
-  // Loop back to last page
+  // Looping ke halaman terakhir
   if (n < 1) {
     slideIndex = totalPages;
   }
 
-  // Hide all cards first
+  // Semua cards ditutup
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";
   }
 
-  // Show cards for current page
+  // Card halaman aktif
   var startIndex = (slideIndex - 1) * cardsPerPage;
   var endIndex = startIndex + cardsPerPage;
 
@@ -176,7 +176,7 @@ function showDivs(n) {
     x[i].style.display = "flex";
   }
 
-  // Update button states
+  // Update button
   updateArrowButtons(slideIndex, totalPages);
 }
 
@@ -185,7 +185,7 @@ function updateArrowButtons(currentPage, totalPages) {
   var rightBtn = document.querySelector(".events-header .arrow-btn:last-child");
 
   if (leftBtn && rightBtn) {
-    // Disable left arrow on first page
+    // Non-aktif button kiri di halaman/tampilan pertama
     if (currentPage === 1) {
       leftBtn.style.opacity = "0.5";
       leftBtn.style.cursor = "not-allowed";
@@ -194,7 +194,7 @@ function updateArrowButtons(currentPage, totalPages) {
       leftBtn.style.cursor = "pointer";
     }
 
-    // Disable right arrow on last page
+    // Non-aktif button kanan di halaman/tampilan terakhir atau kedua
     if (currentPage === totalPages) {
       rightBtn.style.opacity = "0.5";
       rightBtn.style.cursor = "not-allowed";
@@ -205,19 +205,19 @@ function updateArrowButtons(currentPage, totalPages) {
   }
 }
 
-// Handle window resize
+// Sesuaiin layout besar/kecilnya window
 var resizeTimer;
 window.addEventListener("resize", function () {
   clearTimeout(resizeTimer);
   resizeTimer = setTimeout(function () {
-    // Reset to first page on resize
+    // Reset ke tampilan awal
     slideIndex = 1;
     showDivs(slideIndex);
   }, 250);
 });
 
-// Initialize on page load
+// Proses pas pertama kali load
 document.addEventListener("DOMContentLoaded", function () {
-  // Show cards based on screen size
+  // Show cards mengikuti ukuran layar
   showDivs(1);
 });
